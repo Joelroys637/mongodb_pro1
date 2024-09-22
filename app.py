@@ -13,7 +13,7 @@ st.title("Signup, Login, and View Signup Details Page")
 # Signup Form
 st.header("Signup")
 with st.form("signup_form"):
-    name = st.text_input("Enter your name:")
+    name = st.text_input("username:")
     email = st.text_input("Enter your email:")
     password = st.text_input("Enter your password:", type="password")
     
