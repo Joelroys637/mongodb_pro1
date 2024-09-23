@@ -58,18 +58,8 @@ with st.form("login_form"):
         else:
             st.error("Please fill out both email and password fields.")
 
-# View Signup Details
-st.header("View Signup Details")
-if st.button("Show Signup Details"):
-    # Retrieve all signup data from MongoDB
-    users = list(collection.find({}, {"_id": 0, "name": 1, "email": 1}))  # Exclude password and _id for privacy
-    if users:
-        # Convert to DataFrame
-        df = pd.DataFrame(users)
-        # Display the DataFrame in Streamlit
-        st.dataframe(df)
-    else:
-        st.write("No users found.")
+
+
 
 # Close MongoDB connection
 client.close()
