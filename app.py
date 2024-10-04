@@ -2,21 +2,19 @@ import streamlit as st
 import pandas as pd
 from pymongo import MongoClient
 
-background_image = """
+page_bg_img = '''
 <style>
 body {
-    background-image: url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg");
-    background-size: cover;  /* Cover the entire body */
-    background-position: center;
+    background-image: url("https://png.pngtree.com/background/20211215/original/pngtree-modern-simple-elegant-dark-blue-landing-page-website-background-picture-image_1454711.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;  /* Ensure full height */
-    margin: 0;  /* Remove default margin */
+    background-attachment: fixed;
 }
 </style>
-"""
+'''
 
-st.markdown(background_image, unsafe_allow_html=True)
-
+# Inject the CSS into the Streamlit app
+st.markdown(page_bg_img, unsafe_allow_html=True)
 # MongoDB connection
 client = MongoClient('mongodb+srv://joelroys637:8838343971leo@cluster0.izjsx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 db = client['db1']
