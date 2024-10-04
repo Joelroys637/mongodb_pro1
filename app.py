@@ -2,6 +2,21 @@ import streamlit as st
 import pandas as pd
 from pymongo import MongoClient
 
+background_image = """
+<style>
+body {
+    background-image: url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg");
+    background-size: cover;  /* Cover the entire body */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;  /* Ensure full height */
+    margin: 0;  /* Remove default margin */
+}
+</style>
+"""
+
+st.markdown(background_image, unsafe_allow_html=True)
+
 # MongoDB connection
 client = MongoClient('mongodb+srv://joelroys637:8838343971leo@cluster0.izjsx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 db = client['db1']
