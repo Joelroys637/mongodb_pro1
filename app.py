@@ -2,19 +2,57 @@ import streamlit as st
 import pandas as pd
 from pymongo import MongoClient
 
-page_bg_img = '''
+st.markdown("""
+    <style>
+    /* Hide the actual checkbox */
+    div[data-testid="stCheckbox"] > label > div:first-child {
+        display: none;
+    }
+
+    /* Style the label (which is now acting like a button) */
+    div[data-testid="stCheckbox"] > label {
+        background-color: blue; /* Green background */
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+        transition-duration: 0.4s;
+    }
+
+    /* Hover effect */
+    div[data-testid="stCheckbox"] > label:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid blue;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+original_title = '<h1 style="font-family: serif; color:white; font-size: 20px;"> </h1>'
+st.markdown(original_title, unsafe_allow_html=True)
+
+
+
+# Set the background image
+background_image = """
 <style>
-body {
-    background-image: url("https://png.pngtree.com/background/20211215/original/pngtree-modern-simple-elegant-dark-blue-landing-page-website-background-picture-image_1454711.jpg");
-    background-size: cover;
+[data-testid="stAppViewContainer"] > .main {
+    background-image: url("https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg");
+    background-size: 100vw 100vh;  # This sets the size to cover 100% of the viewport width and height
+    background-position: center;  
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 </style>
-'''
+"""
 
-# Inject the CSS into the Streamlit app
-st.markdown(page_bg_img, unsafe_allow_html=True)
+st.markdown(background_image, unsafe_allow_html=True)
+
 # MongoDB connection
 client = MongoClient('mongodb+srv://joelroys637:8838343971leo@cluster0.izjsx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 db = client['db1']
